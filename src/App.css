@@ -19,7 +19,7 @@ body {
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
     line-height: 1.6;
-    background-color: #fff;
+    background-color: #172027;
     color: #333;
 }
 
@@ -112,8 +112,10 @@ img {
 /* Cards */
 .card {
     padding: 1rem;
-    border: #ccc 1px dotted;
+    border: #ccc 1px solid;
     margin: 0.7rem 0;
+    color: white;
+    height: 250px;
 }
 
 /* List */
@@ -329,11 +331,19 @@ textarea {
     padding: 0.4rem;
     font-size: 1.2rem;
     border: 1px solid #ccc;
+    margin-bottom: 10px;
 }
 
 input[type="submit"],
 button {
     font: inherit;
+    margin: 0 50% 20px 45%;
+    width: 150px;
+    background-color: var(--dark-color);
+    color: White;
+    border: none;
+    cursor: pointer;
+    height: 35px;
 }
 
 table th,
