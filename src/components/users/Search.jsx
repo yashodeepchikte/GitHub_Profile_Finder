@@ -1,29 +1,28 @@
-import React, { Component } from 'react'
+import React, { useState, useContext } from 'react'
 
-export class Search extends Component {
+import GithubContext from "../../context/github/github.Context"
+const Search = (props) => {
 
-    state = {
-        userHandel: ""
-    }
+    const githubContext = useContext(GithubContext)
 
-    handelChange = (event) => this.setState({ [event.target.name]: event.target.value })
-    handelSubmit = (event) => {
+    const { clearUsers, users } = props;
+    const [userHandel, setUserHandel] = useState("");
+
+    const handelChange = (event) => setUserHandel(event.target.value)
+    const handelSubmit = (event) => {
         event.preventDefault();
-        this.props.searchUsers(this.state.userHandel)
-        this.setState({ userHandel: "" })
+        githubContext.searchUsers(userHandel)
+        setUserHandel("")
     }
-
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.handelSubmit}>
-                    <input type="text" name="userHandel" value={this.state.userHandel} onChange={this.handelChange} placeholder="User Handel" />
-                    <button type="submit">Search</button>
-                </form>
-                {this.props.users.length !== 0 ? <button onClick={this.props.clearUsers}>Clear</button> : ""}
-            </div>
-        )
-    }
+    return (
+        <div>
+            <form onSubmit={handelSubmit}>
+                <input type="text" name="userHandel" value={userHandel} onChange={handelChange} placeholder="User Handel" />
+                <button type="submit">Search</button>
+            </form>
+            {users.length !== 0 ? <button onClick={clearUsers}>Clear</button> : ""}
+        </div>
+    )
 }
 
 export default Search

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Alert = ({ alert, clearAlert }) => {
-    console.log("alert =", alert)
+
     if (alert !== null) {
 
         return (
